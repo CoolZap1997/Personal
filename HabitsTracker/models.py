@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from datetime import date
 
 class User(models.Model):
     GENDER_CHOICES = (
@@ -21,3 +20,7 @@ class User(models.Model):
 class Habits(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     habit = models.CharField(max_length=30, unique=True)
+
+class Records(models.Model):
+    habit = models.ForeignKey(Habits, on_delete=models.CASCADE)
+    record_date = models.DateField(default=date.today)
