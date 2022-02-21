@@ -14,7 +14,7 @@ class User(models.Model):
     email = models.CharField(max_length=50, unique=True)
     password = models.CharField(min_length=8, max_length=100)
     country_code = models.CharField(min_length=2, max_length=4)
-    phone = models.BigIntegerField(max_length=10)
+    phone = models.IntegerField(max_length=10)
 
 
 class Habits(models.Model):
